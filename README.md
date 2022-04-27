@@ -28,6 +28,7 @@ redis
 ```shell
 FLUSHALL # limpa todo cache
 
+
 set key value # adiciona no cache 
 get key # busca do cache 
 
