@@ -2,6 +2,7 @@ package br.com.redis.services;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
+import redis.clients.jedis.params.SetParams;
 
 public class RedisService {
     private Jedis jedis;
@@ -11,7 +12,9 @@ public class RedisService {
     }
 
     public void write(String key, String value) {
-        jedis.set(key, value);
+        var params = new SetParams();
+        params.ex(10);
+        jedis.set(key, value, params);
     }
 
     public String read(String key) {

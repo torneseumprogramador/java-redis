@@ -31,7 +31,7 @@ FLUSHALL # limpa todo cache
 
 set key value # adiciona no cache 
 get key # busca do cache 
-
+set "nome" "danilo" EX 10 # com tempo de expiração em segundos
 
 lpush "fila" "item1" # adiciona na fila
 rpop "fila" # busca da fila na fila
