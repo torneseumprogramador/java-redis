@@ -25,7 +25,7 @@ redis
 ```
 
 # adicionar no cache via client
-```redis
+```shell
 FLUSHALL # limpa todo cache
 ```
 
