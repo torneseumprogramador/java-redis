@@ -51,10 +51,36 @@ jedis.set("chave", "um valor");
 String cachedResponse = jedis.get("chave");
 ```
 
-# trabalhando com listas
+# Push/Pop
 ```java
-jedis.lpush("queue#tasks", "firstTask");
-jedis.lpush("queue#tasks", "secondTask");
+jedis.lpush("fila", "item1");
+jedis.lpush("fila", "item2");
 
-String task = jedis.rpop("queue#tasks");
+String pop1 = jedis.rpop("fila");
+String pop2 = jedis.rpop("fila");
 ```
+
+# Sets(Array)
+```java
+jedis.sadd("membros", "danilo");
+jedis.sadd("membros", "lana");
+jedis.sadd("membros", "sheila");
+
+Set<String> membros = jedis.smembers("membros");
+boolean isMember = jedis.sismember("membros", "sheila");
+```
+
+# Hashes
+```java
+jedis.hset("usuario", "nome", "Danilo");
+jedis.hset("usuario", "cpf", "339839389383");
+jedis.hset("usuario", "telefone", "(11)99999-9999");
+        
+String nome = jedis.hget("usuario", "nome");
+        
+Map<String, String> fields = jedis.hgetAll("usuario");
+String cpf = fields.get("cpf");
+```        
+
+# mais infos
+- https://www.baeldung.com/jedis-java-redis-client-library
