@@ -11,9 +11,9 @@ public class RedisService {
         jedis = new Jedis("http://localhost:6379");
     }
 
-    public void write(String key, String value) {
+    public void write(String key, String value, long expireInSecconds) {
         var params = new SetParams();
-        params.ex(10);
+        params.ex(expireInSecconds);
         jedis.set(key, value, params);
     }
 
@@ -33,5 +33,9 @@ public class RedisService {
                 System.out.println("Mensagem: " + message);
             }
         }, key);
+    }
+
+    public void close() {
+        jedis.close();
     }
 }
