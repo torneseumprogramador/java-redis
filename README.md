@@ -27,8 +27,34 @@ redis
 # adicionar no cache via client
 ```shell
 FLUSHALL # limpa todo cache
-```
 
+set key value # adiciona no cache 
+get key # busca do cache 
+
+
+lpush "fila" "item1" # adiciona na fila
+rpop "fila" # busca da fila na fila
+
+
+# adiciona no array
+sadd "membros" "danilo"
+sadd "membros" "lana"
+sadd "membros" "sheila"
+# busca o array
+smembers "membros"
+# valida no array o array
+sismember "membros" "sheila"
+
+
+# adiciona no hash
+hset "usuario" "nome" "Danilo"
+hset "usuario" "cpf" "339839389383"
+hset "usuario" "telefone" "(11)99999-9999"
+# busca do hash        
+hget "usuario" "nome"
+# busca hash todo     
+hgetAll "usuario"
+```
 
 # criando projeto
 mvn archetype:generate -DgroupId=br.com.redis -DartifactId=redis -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
