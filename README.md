@@ -30,3 +30,31 @@ https://www.sohamkamani.com/java/cli-app-with-maven/
 ./buld.sh
 ./start.sh
 ```
+
+# dependencias
+```xml
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+    <version>4.2.2</version>
+</dependency>
+```
+
+# criando instancia
+```java
+Jedis jedis = new Jedis("http://localhost:6379");
+```
+
+# utilizando redis para gravar e ler strings
+```java
+jedis.set("chave", "um valor");
+String cachedResponse = jedis.get("chave");
+```
+
+# trabalhando com listas
+```java
+jedis.lpush("queue#tasks", "firstTask");
+jedis.lpush("queue#tasks", "secondTask");
+
+String task = jedis.rpop("queue#tasks");
+```
