@@ -17,6 +17,19 @@ source ~/.bash_profile
 # documentação
 - https://redis.io/docs/
 
+# acessar client
+- https://redis.io/docs/manual/cli/
+```shell
+redis
+// 127.0.0.1:6379>
+```
+
+# adicionar no cache via client
+```redis
+FLUSHALL # limpa todo cache
+```
+
+
 # criando projeto
 mvn archetype:generate -DgroupId=br.com.redis -DartifactId=redis -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 
