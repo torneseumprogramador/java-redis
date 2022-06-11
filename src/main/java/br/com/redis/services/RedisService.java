@@ -8,7 +8,7 @@ public class RedisService {
     private Jedis jedis;
 
     public RedisService(){
-        jedis = new Jedis("http://localhost:6379");
+        jedis = new Jedis("http://127.0.0.1:6379");
     }
 
     public void write(String key, String value, long expireInSecconds) {
